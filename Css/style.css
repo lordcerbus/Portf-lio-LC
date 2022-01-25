@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+div#app {
+    width: 99%;
+    height: 98vh;
+    margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#app div.animacao {
+    width: 43%;
+    height: 90%;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.animacao img {
+    position: absolute;
+}
+
+img[src="imagens/roda.png"] {
+    border-radius: 50%;
+    animation: rodar 60s linear infinite;
+}
+
+@keyframes rodar {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+    
+img[src="imagens/centro.png"] {
+    z-index: 1;
+}
+
+.appOn {
+    animation: appOn 1s ease-in-out;
+}
+
+@keyframes appOn {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.97);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+div.fundoAplicacao {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 0.1rem solid rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.on {
+    width: 99.9%;
+    height: 99.6%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+div.fundoAplicacao.on span {
+    width: 1%;
+    height: 1%;
+    color: rgb(255, 255, 255);
+    font-size: 1.8rem;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    cursor: pointer;
+}
+
+div.fundoAplicacao.on div.botoes {
+    width: 90%;
+    height: 8%;
+    display: flex;
+    position: absolute;
+    top: 45%;
+    justify-content: space-between;
+}
+
+div.botoes div {
+    width: 5%;
+    height: 100%;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    box-shadow: rgb(255, 255, 255) 0.1rem 0.1rem 0.1rem 0.1rem;
+}
+
+div.fundoAplicacao.on div#perfil,
+div.fundoAplicacao.on div#projetos,
+div.fundoAplicacao.on div#habilidades,
+div.fundoAplicacao.on div#contato {
+    width: 80%;
+    height: 90%;
+    position: absolute;
+    border: 0.1rem solid rgb(255, 255, 255);
+    top: 5%;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+div#perfil {
+    background: red;
+}
+
+div#projetos {
+    background: blue;
+}
+
+div#habilidades {
+    background: green;
+}
+
+div#contato {
+    background: yellow;
+}
+
+.show {
+    z-index: 1;
+}
+
+/* squares */
+
+.squares li {
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    display: block;
+    position: absolute;
+    bottom: -40px;
+    animation: up 2s infinite alternate;
+    z-index: -1
+}
+
+
+
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    25% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    75% {
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-800px) 
+    }
+}
