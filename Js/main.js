@@ -1,3 +1,4 @@
+
 const html = {
     get(element) {
         return document.querySelector(element);
@@ -10,6 +11,7 @@ const html = {
 let currentDivIndex = 0,
     Div = html.getAll("div.fundoAplicacao .tela")
     max = Div.length;
+    console.log(Div[0])
 
 const eventos = {
     nextDiv() {
@@ -20,6 +22,7 @@ const eventos = {
             currentDivIndex = 0
         Div[currentDivIndex]
             .classList.add("show")
+            console.log(Div[currentDivIndex])
     },
     
      prevDiv() {
@@ -30,13 +33,15 @@ const eventos = {
             currentDivIndex = max - 1
         Div[currentDivIndex]
             .classList.add("show")
+            console.log(Div[currentDivIndex])
+
     },
     listeners() {
         html.get('img[src="imagens/centro.png"]').addEventListener('click', function(){
             html.get('img[src="imagens/centro.png"]').classList.add('appOn')
             setTimeout(function(){
             html.get('img[src="imagens/roda.png"]').style.animation = 'rodar 1s linear infinite'
-            }, 500)
+            }, 400)
             setTimeout(function(){
                 html.get('.fundoAplicacao').classList.add('on')
                 html.get('img[src="imagens/roda.png"]').style.animation = 'rodar 60s linear infinite'
