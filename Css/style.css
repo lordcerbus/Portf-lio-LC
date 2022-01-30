@@ -48,34 +48,29 @@ img[src="imagens/centro.png"] {
     animation: appOn 1s ease-in-out;
 }
 
-@keyframes appOn {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.97);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
 div.fundoAplicacao {
     background-color: rgba(0, 0, 0, 0.9);
     border: 0.1rem solid rgb(255, 255, 255);
     display: flex;
+    top: 100%;
     justify-content: center;
     align-items: center;
     position: absolute;
 }
 
+div.fundoAplicacao div#perfil,
+div.fundoAplicacao div#projetos,
+div.fundoAplicacao div#habilidades,
+div.fundoAplicacao div#contato {
+    display: none;
+}
+
 .on {
     width: 99.9%;
     height: 99.6%;
-    z-index: 2;
-    top: 0;
     left: 0;
-    transition: all 0.5s ease-in-out;
+    z-index: 2;
+    animation: show 0.5s ease-in forwards;
 }
 
 div.fundoAplicacao.on span {
@@ -257,6 +252,28 @@ div#contato {
         transform: translateY(-800px) 
     }
 }
+
+@keyframes appOn {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.97);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-100%);
+    }
+} 
 
 .squares li {
     border-radius: 50%;
