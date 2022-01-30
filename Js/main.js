@@ -45,15 +45,15 @@ const eventos = {
             setTimeout(function(){
                 html.get('.fundoAplicacao').classList.add('on')
                 html.get('img[src="imagens/roda.png"]').style.animation = 'rodar 60s linear infinite'
-            }, 1100)
+            }, 1000)
          })
         html.get('div.fundoAplicacao span').addEventListener('click', function(){
              html.get('.fundoAplicacao').classList.remove('on')
              html.get('img[src="imagens/centro.png"]').classList.remove('appOn')
           })
-        html.get('div.botoes div.prev').addEventListener('click', eventos.prevDiv)
+        html.get('div.botoes div.prev').addEventListener('click', eventos.nextDiv)
         
-        html.get('div.botoes div.next').addEventListener('click', eventos.nextDiv)
+        html.get('div.botoes div.next').addEventListener('click', eventos.prevDiv)
     }
 }
 
