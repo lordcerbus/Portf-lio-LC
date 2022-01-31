@@ -49,28 +49,25 @@ img[src="imagens/centro.png"] {
 }
 
 div.fundoAplicacao {
+    width: 99.9%;
+    height: 99.6%;
     background-color: rgba(0, 0, 0, 0.9);
     border: 0.1rem solid rgb(255, 255, 255);
     display: flex;
-    top: 100%;
     justify-content: center;
     align-items: center;
+    transition: 0.35s ease-in-out;
     position: absolute;
+    left: 0;
+    z-index: 1;
 }
 
-div.fundoAplicacao div#perfil,
-div.fundoAplicacao div#projetos,
-div.fundoAplicacao div#habilidades,
-div.fundoAplicacao div#contato {
-    display: none;
+.off {
+    top: 100%;
 }
 
 .on {
-    width: 99.9%;
-    height: 99.6%;
-    left: 0;
-    z-index: 2;
-    animation: show 0.5s ease-in forwards;
+    top: 0;
 }
 
 div.fundoAplicacao.on span {
@@ -104,10 +101,10 @@ div.botoes div {
     box-shadow: rgb(255, 255, 255) 0.1rem 0.1rem 0.1rem 0.1rem;
 }
 
-div.fundoAplicacao.on div#perfil,
-div.fundoAplicacao.on div#projetos,
-div.fundoAplicacao.on div#habilidades,
-div.fundoAplicacao.on div#contato {
+div.fundoAplicacao div#perfil,
+div.fundoAplicacao div#projetos,
+div.fundoAplicacao div#habilidades,
+div.fundoAplicacao div#contato {
     width: 80%;
     height: 90%;
     position: absolute;
@@ -264,16 +261,6 @@ div#contato {
         transform: scale(1);
     }
 }
-
-@keyframes show {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(-100%);
-    }
-} 
 
 .squares li {
     border-radius: 50%;

@@ -40,16 +40,18 @@ const eventos = {
         html.get('img[src="imagens/centro.png"]').addEventListener('click', function(){
             html.get('img[src="imagens/centro.png"]').classList.add('appOn')
             setTimeout(function(){
-            html.get('img[src="imagens/roda.png"]').style.animation = 'rodar 1s linear infinite'
+            html.get('img[src="imagens/roda.png"]').style.animation = 'rodar 1.5s linear infinite'
             }, 400)
             setTimeout(function(){
-                html.get('.fundoAplicacao').classList.add('on')
+                html.get('.fundoAplicacao').classList.toggle('on')
+                html.get('.fundoAplicacao').classList.toggle('off')
                 html.get('img[src="imagens/roda.png"]').style.animation = 'rodar 60s linear infinite'
             }, 1000)
          })
         html.get('div.fundoAplicacao span').addEventListener('click', function(){
-             html.get('.fundoAplicacao').classList.remove('on')
-             html.get('img[src="imagens/centro.png"]').classList.remove('appOn')
+                html.get('.fundoAplicacao').classList.toggle('on')
+                html.get('.fundoAplicacao').classList.toggle('off')
+                html.get('img[src="imagens/centro.png"]').classList.remove('appOn')
           })
         html.get('div.botoes div.prev').addEventListener('click', eventos.nextDiv)
         
