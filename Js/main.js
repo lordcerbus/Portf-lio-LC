@@ -17,22 +17,31 @@ const eventos = {
     nextDiv() {
         Div[currentDivIndex]
             .classList.remove("show")
+        Div[currentDivIndex]
+            .classList.add("notShow")
+
         currentDivIndex++
         if(currentDivIndex >= max)
             currentDivIndex = 0
         Div[currentDivIndex]
             .classList.add("show")
+        Div[currentDivIndex]
+            .classList.remove("notShow")
             console.log(Div[currentDivIndex])
     },
     
      prevDiv() {
         Div[currentDivIndex]
             .classList.remove("show")
+        Div[currentDivIndex]
+            .classList.add("notShow")
         currentDivIndex--
         if(currentDivIndex < 0)
             currentDivIndex = max - 1
         Div[currentDivIndex]
             .classList.add("show")
+        Div[currentDivIndex]
+            .classList.remove("notShow")
             console.log(Div[currentDivIndex])
 
     },
