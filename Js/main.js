@@ -11,18 +11,16 @@ const html = {
 let currentDivIndex = 0,
     Div = html.getAll("div.fundoAplicacao .tela")
     max = Div.length;
-    console.log(Div[0])
-
+    console.log(max)
 const eventos = {
     nextDiv() {
         Div[currentDivIndex]
             .classList.remove("show")
         Div[currentDivIndex]
             .classList.add("notShow")
-
         currentDivIndex++
         if(currentDivIndex >= max)
-            currentDivIndex = 0
+            currentDivIndex = max - 1
         Div[currentDivIndex]
             .classList.add("show")
         Div[currentDivIndex]
@@ -37,13 +35,12 @@ const eventos = {
             .classList.add("notShow")
         currentDivIndex--
         if(currentDivIndex < 0)
-            currentDivIndex = max - 1
+            currentDivIndex = 0
         Div[currentDivIndex]
             .classList.add("show")
         Div[currentDivIndex]
             .classList.remove("notShow")
             console.log(Div[currentDivIndex])
-
     },
     listeners() {
         html.get('img[src="imagens/centro.png"]').addEventListener('click', function(){
@@ -62,9 +59,9 @@ const eventos = {
                 html.get('.fundoAplicacao').classList.toggle('off')
                 html.get('img[src="imagens/centro.png"]').classList.remove('appOn')
           })
-        html.get('div.botoes div.prev').addEventListener('click', eventos.nextDiv)
+        html.get('div.botoes div.prev').addEventListener('click', eventos.prevDiv)
         
-        html.get('div.botoes div.next').addEventListener('click', eventos.prevDiv)
+        html.get('div.botoes div.next').addEventListener('click', eventos.nextDiv)
     }
 }
 
