@@ -117,37 +117,47 @@ div.fundoAplicacao div#contato {
     font-size: 2rem;
 }
 
-div#perfil {
-    background: red;
-}
-
-div#projetos {
-    background: blue;
-}
-
-div#habilidades {
-    background: green;
-}
-
+div#perfil,
+div#habilidades,
+div#projetos,
 div#contato {
-    background: yellow;
+    transition: 0.2s ease-in;
+    background-color: #fff transparent;
+    backdrop-filter: blur(10px);
 }
 
+.notShow {
+    opacity:0;
+}
 .show {
     z-index: 1;
+    opacity:1;
 }
 
-/* squares */
+div#perfil h1,
+div#perfil h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
 
-.squares li {
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    display: block;
+div#perfil p {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+div#perfil p strong {
+    color: #f80202;
+}
+
+div#habilidades h3,
+div#projetos h4,
+div#contato h6 {
+    font-size: 3rem;
     position: absolute;
-    bottom: -40px;
-    animation: up 2s infinite alternate;
-    z-index: -1
+    text-align: center;
+    top: 8%;
 }
+
 
 }
 
