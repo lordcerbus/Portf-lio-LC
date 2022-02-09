@@ -143,13 +143,24 @@ div#contato {
 }
 .show {
     z-index: 1;
-    opacity:1;
+    opacity: 1;
 }
 
 div#perfil h1,
 div#perfil h2 {
     text-align: center;
     margin-bottom: 0.5rem;
+    position: absolute;
+}
+
+div#perfil h1 {
+    top: 2%;
+    left: 30%;
+} 
+
+div#perfil h2 {
+    top: 20%;
+    left: 26%;
 }
 
 div#perfil p {
@@ -168,6 +179,26 @@ div#contato h6 {
     position: absolute;
     text-align: center;
     top: 2%;
+}
+
+div#habilidades svg.htmlIcon:hover {
+    color: #e34f26;
+}
+
+div#habilidades svg {
+    width: 30%;
+}
+
+div#habilidades svg.cssIcon:hover {
+    color: #264de4;
+}
+
+div#habilidades svg.jsIcon:hover {
+    color: #f0db4f;
+}
+
+div#habilidades svg.reactIcon:hover {
+    color: #61DBFB;
 }
 
 div#contato div.formulario {
