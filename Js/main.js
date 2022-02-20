@@ -60,10 +60,20 @@ const eventos = {
                 html.get('img[src="imagens/centro.png"]').classList.remove('appOn')
           })
         html.get('div.botoes div.prev').addEventListener('click', eventos.prevDiv)
-        
         html.get('div.botoes div.next').addEventListener('click', eventos.nextDiv)
     }
 }
+
+html.getAll('div.projeto img').forEach(function(img){
+    img.addEventListener('click', function(e){
+        html.get('div.modal').style.visibility = 'visible'
+    html.get('div.modal').style.backgroundImage = 'url("' + e.target.src + '")'
+})
+})
+
+html.get('div.modal').addEventListener('click', function(){
+    html.get('div.modal').style.visibility = 'hidden'
+})
 
 eventos.listeners();
 
