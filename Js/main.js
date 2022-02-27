@@ -8,10 +8,11 @@ const html = {
     }
 }
 
+// Selection of Div´s
 let currentDivIndex = 0,
     Div = html.getAll("div.fundoAplicacao .tela")
     max = Div.length;
-    console.log(max)
+
 const eventos = {
     nextDiv() {
         Div[currentDivIndex]
@@ -25,9 +26,8 @@ const eventos = {
             .classList.add("show")
         Div[currentDivIndex]
             .classList.remove("notShow")
-            console.log(Div[currentDivIndex])
+           
     },
-    
      prevDiv() {
         Div[currentDivIndex]
             .classList.remove("show")
@@ -40,7 +40,53 @@ const eventos = {
             .classList.add("show")
         Div[currentDivIndex]
             .classList.remove("notShow")
-            console.log(Div[currentDivIndex])
+     
+    },
+    Initial() {
+        setTimeout(function(){
+            html.get('img[src="imagens/centro.png"]').classList.add('appOn')
+            html.get('img[src="imagens/roda.png"]').style.animation = 'rodar 1.5s linear infinite'
+            }, 4600)
+            setTimeout(function(){
+                html.get('.fundoAplicacao').classList.toggle('on')
+                html.get('.fundoAplicacao').classList.toggle('off')
+                html.get('img[src="imagens/roda.png"]').style.animation = 'rodar 60s linear infinite'
+            }, 5000)
+    },
+    squares() {
+        const ulSquares = document.querySelector('ul.squares')
+    
+    for (let i = 0; i < 50; i++) {
+        const li = document.createElement('li')
+    
+        const random = (min, max) => Math.random() * (max - min) + min
+    
+        const size = Math.floor(random(10, 60))
+        const position = random(1, 99)
+        const delay = random(5, 0.1)
+        const duration = random(24, 12)
+    
+        li.style.width = `${size}px`
+        li.style.height = `${size}px`
+        li.style.bottom = `-${size}px`
+        li.style.left = `${position}%`
+        li.style.animationDelay = `${delay}s`
+        li.style.animationDuration = `${duration}s`
+        li.style.animationTimingFunction = `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`
+    
+        ulSquares.appendChild(li)
+        } 
+    },
+    modal() {
+        html.getAll('div.projeto img').forEach(function(img){
+            img.addEventListener('click', function(e){
+                html.get('div.modal').style.visibility = 'visible'
+            html.get('div.modal').style.backgroundImage = 'url("' + e.target.src + '")'
+         })
+        })
+        html.get('div.modal').addEventListener('click', function(){
+            html.get('div.modal').style.visibility = 'hidden'
+        })
     },
     listeners() {
         html.get('img[src="imagens/centro.png"]').addEventListener('click', function(){
@@ -64,40 +110,15 @@ const eventos = {
     }
 }
 
-html.getAll('div.projeto img').forEach(function(img){
-    img.addEventListener('click', function(e){
-        html.get('div.modal').style.visibility = 'visible'
-    html.get('div.modal').style.backgroundImage = 'url("' + e.target.src + '")'
-})
-})
-
-html.get('div.modal').addEventListener('click', function(){
-    html.get('div.modal').style.visibility = 'hidden'
-})
-
-eventos.listeners();
-
-/* Fundo com Quadros */
-const ulSquares = document.querySelector('ul.squares')
-
-for (let i = 0; i < 50; i++) {
-    const li = document.createElement('li')
-
-    const random = (min, max) => Math.random() * (max - min) + min
-
-    const size = Math.floor(random(10, 60))
-    const position = random(1, 99)
-    const delay = random(5, 0.1)
-    const duration = random(24, 12)
-
-    li.style.width = `${size}px`
-    li.style.height = `${size}px`
-    li.style.bottom = `-${size}px`
-    li.style.left = `${position}%`
-    li.style.animationDelay = `${delay}s`
-    li.style.animationDuration = `${duration}s`
-    li.style.animationTimingFunction = `cubic-bezier(${Math.random()}, ${Math.random()}, ${Math.random()}, ${Math.random()})`
-
-    ulSquares.appendChild(li)
+function init() {
+ eventos.modal();
+ eventos.squares();
+ eventos.Initial();
+ eventos.listeners();
 }
+
+init()
+
+
+
  
