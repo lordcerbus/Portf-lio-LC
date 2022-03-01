@@ -118,7 +118,3 @@ function init() {
 }
 
 init()
-
-
-
- 
